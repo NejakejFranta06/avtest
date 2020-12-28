@@ -3,7 +3,7 @@ image: Visual Studio 2019
 environment:
   APPVEYOR_RDP_PASSWORD:
     secure: yOLKbdI7BIIvInJjMmIujg==
-build:
-  verbosity: minimal
+build_script:
+- cmd: echo "test build..."
 on_finish:
 - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
