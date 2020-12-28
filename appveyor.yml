@@ -1,0 +1,11 @@
+version: 1.0.{build}
+image: Visual Studio 2019
+environment:
+  APPVEYOR_RDP_PASSWORD:
+    secure: JQnJpDtra9S79xniu8UBKQ==
+  NGROK_AUTH_TOKEN:
+    secure: zZh+Fqa7iSVL/dYweByVVqnMZb7NlU6Yf3tRXX2WIMAGeqtXevesPvsVrKOdh7IrQVqocLi2qcoLqzxJs2CN1Q==
+build:
+  verbosity: minimal
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
